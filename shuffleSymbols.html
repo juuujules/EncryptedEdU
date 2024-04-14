@@ -1,1 +1,41 @@
+<html>
+  <head>
+    <link href='https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/cascadia-code.min.css' rel='stylesheet'>
+    <style>
+      #letters {
+        font-family: "Cascadia Code", monospace;
+        color: white;
+        font-size: 10px;
+          font-weight: 150;
+      }
+    </style>
+    <script>
+      function randomizeLetters() {
+        // Get the letters to be randomized
+        var letters = "(　#　/　/　　　,/%　　(/　　　　(../@/%/　　%%(　,　@　%　　　.　.　　@　@　#　　/　/　　　　　#%.　@　　,#/　　　#　　　#　/#　/.,.　　　#.#　　　/　　　　　%　　　　$.#  　　.(((/　,　@　　　　(../@/%/　　%%(　,　@　%               　(../@/%/　　      (　#　/　/　　　,/%　　(/　　　　(../@/%/　　%%(　,　@　%　　　.　.　　@　@　#　　/　/　　　　　#%.　@　　,#/　　　#　　　#　/#　/.,.　　　#.#　　　/　　　　　%　　　　$.#  　　.(((/　,　@　　　　(../@/%/　　%%(　,　@　%               　(../@/%/　　      ";
 
+        // Split the letters into an array
+        letters = letters.split("");
+
+        // Shuffle the array using the Fisher-Yates shuffle algorithm
+        for (var i = letters.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var temp = letters[i];
+          letters[i] = letters[j];
+          letters[j] = temp;
+        }
+
+        // Join the shuffled letters back into a string
+        letters = letters.join("");
+
+        // Display the shuffled letters on the screen
+        document.getElementById("letters").innerHTML = letters;
+      }
+
+      setInterval(randomizeLetters, 1000);
+    </script>
+  </head>
+  <body>
+    <div id="letters"></div>
+  </body>
+</html>
